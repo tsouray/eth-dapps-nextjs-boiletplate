@@ -1,25 +1,94 @@
-1. 先打開Ganache (GUI） , 新建 workspace (NextDapp)
-   NextDapp :: Host name: 127.0.0.1-lo0 /Port: 8545 /Network ID:5555
+該專案架構： Truffle + Ganache + Metamask + NextJS
 
-2. 修改 <project>/.truffle-config.js , 修改 development
+事先安裝項目： 1. Ganache ； 2. Metamask
+本專案Demo時的區塊鏈建議使用Ganache的開發鏈，
+搭配 Metamask 錢包 ，另外錢包需要事先安裝設定
+    錢包安裝設定：
+    1）安裝在使用的瀏覽器（Chrome）中
+    2) 新增 自定義的網路鏈 ： 按照Ganache使用的設定來新增
+    3) 連到自定義的網路鏈後， 接著在錢包 匯入帳戶 ： 複製Ganache提供的帳戶私鑰。
 
-    development: {
-      host: "127.0.0.1",     // Localhost (default: none)
-      port: 8545,            // Standard Ethereum port (default: none)
-      network_id: "*",       // Any network (default: none)
-    },
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+一.)專案初始化：
+   Git Clone 專案後，開啟終端機，進入專案目錄，使用npm i 安裝依賴項。
+    (1) --> % cd ~/<project root path>
+    (2) --> % npm i 
+      (2-1)  若安裝失敗，輪入 --> % npm audit fix
+    (3) 查看安裝 ：
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+        --> % npm list
+eth-dapps-nextjs-boiletplate@ /<project root path>
+├── @codechecks/client@0.1.12
+├── @truffle/hdwallet-provider@2.0.3
+├── coveralls@3.1.1
+├── dotenv@16.0.0
+├── eth-gas-reporter@0.2.24
+└── solidity-coverage@0.7.20
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+   (4) 進入client 目錄，查看安裝，若有失敗項，修復之
+       --> % cd client
+   (5) client目錄下安裝依賴項 
+       --> % npm i
+      (5-1) 修復安裝依賴項：
+           --> % npm audit fix
+   (6) 檢查client目錄的安裝結果
+        --> % npm list
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+<project root path> client % npm list
+eth-dapps-nextjs-boiletplate@0.1.0 /<project root path>/client
+├── @chakra-ui/icons@1.1.7
+├── @chakra-ui/react@1.8.6
+├── @emotion/react@11.8.1
+├── @emotion/styled@11.8.1
+├── @metamask/detect-provider@1.2.0
+├── @metamask/jazzicon@2.0.0
+├── @types/react@17.0.39
+├── @walletconnect/web3-provider@1.7.3
+├── eslint-config-next@12.1.0
+├── eslint@8.10.0
+├── framer-motion@6.2.8
+├── lodash@4.17.21
+├── next@12.1.0
+├── react-dom@17.0.2
+├── react-spinners@0.11.0
+├── react@17.0.2
+├── sharp@0.30.2
+├── typescript@4.6.2
+└── web3@1.7.0
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-3. 打開步驟1的 Ganche設定
-   加入剛才修改好的 project : <project>/.truffle-config.js
-
-4. 開啟 Terminal : 
-   4-1. cd <project root>
-   4-2. truffle console --network development
-   4-3. 連上network後 truffle(development)
-   4-4. truffle(development)> compile
-   4-5. truffle(development)> migrate
-
-5. 按照README.md
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+二.) Smart Contract Development (智能合約開發)
+   本專案使用 Truffle 編譯 Smart Contract , 且使用 Ganache 的測試鏈
+   所以先建立 Ganache 測試鏈環境
+   (1) 打開 <project root path>/.truffle-config.js , 修改 development 部分，將註解掉的部鈼取消  
+        >>>>>>>>>>>>>>>>>>>>>>>>>>>>
+            development: {
+              host: "127.0.0.1",     // Localhost (default: none)
+              port: 8545,            // Standard Ethereum port (default: none)
+              network_id: "*",       // Any network (default: none)
+            },
+         >>>>>>>>>>>>>>>>>>>>>>>>>>>>
+   (2)開啟 Ganache (GUI） , 新建 workspace (取名 -> Ex : NextDapp) 
+     設定值：：
+     (2-1) Host name: 127.0.0.1-lo0 
+     (2-2) Port: 8545 
+     (2-3) Network ID:5555(任意)
+     (2-4) 在設定名稱 的 下面找到 [Add Project] 按鍵， 匯入 ".truffle-config.js" 檔案
+     (2-5) 設定完後，啟動Workspace
+   (3) 讓 Ganache 持續開著，然後打開 終端機 ，準備使用 Truffle 管理Smart Contrat 
+     (3-1) 進入專案目錄 
+           --> % cd <project root path>
+     (3-2) truffle 連到 development 測試鏈環境
+           --> % truffle console --network development 
+     (3-3) 編譯 Smart Contract
+           --> truffle(development)> compile 
+     (3-4) Migrate Smart Contract
+           --> truffle(development)> migrate
+           (migrate 成功後會有新的地址，且花費Gas，且Ganache的[CONTRACTS]中會有合約地址)
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #    
+三.) 設定合約地址：
+   (1) 按照README.md
    Create the `.env.local` file in the `client` directory and define the following environment variables: 
    在clinet目錄下建立 .env.local檔案。 然後填入以下資訊::(address 填入 Ganache-Contract中的 Greeter位置)
     ```
@@ -27,11 +96,15 @@
     NEXT_PUBLIC_INFURA_PROJECT_ID=YOUR_INFURA_PROJECT_ID
     ```
 
-6. 啟動另一個Terminal：
-   6-1. cd <project root>/client
-   6-2. npm run dev
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+四.) 啟動網頁：
+   (1) 啟動另一個Terminal：
+       1-1. cd <project root path>/client
+       1-2. npm run dev
 
-7. 開啟 Metamask ：
-   設定網路， 匯入帳號，
+   (2) Chrome 開啟 Metamask ：
+      設定網路， 匯入帳號，
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #      
    
   

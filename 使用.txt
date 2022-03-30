@@ -90,12 +90,10 @@ eth-dapps-nextjs-boiletplate@0.1.0 /<project root path>/client
 三.) 設定合約地址：
    (1) 按照README.md
    Create the `.env.local` file in the `client` directory and define the following environment variables: 
-   在clinet目錄下建立 .env.local檔案。 然後填入以下資訊::(address 填入 Ganache-Contract中的 Greeter位置)
-    ```
-    NEXT_PUBLIC_GREETER_CONTRACT_ADDRESS=0x6508A85f7B684AcE43dA1b09585193C59b904528
-    NEXT_PUBLIC_INFURA_PROJECT_ID=YOUR_INFURA_PROJECT_ID
-    ```
-
+   ＊ 在clinet目錄下建立 .env.local檔案。 然後填入以下資訊::(address 填入 Ganache-Contract中的 Greeter位置)
+   ```
+   NEXT_PUBLIC_GREETER_CONTRACT_ADDRESS=0x9Db724f913dac020325Eaf8Cb6695e9d087Ae7B8
+   ```
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 四.) 啟動網頁：
    (1) 啟動另一個Terminal：
@@ -112,5 +110,8 @@ eth-dapps-nextjs-boiletplate@0.1.0 /<project root path>/client
             (2-2-2) 切換到已經設定好的測試鏈
         2-3) 連到自定義的網路鏈後， 接著在錢包 匯入帳戶 ： 複製Ganache提供的帳戶私鑰。
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #      
+   
+
+
    
   

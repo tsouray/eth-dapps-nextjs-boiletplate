@@ -1,0 +1,37 @@
+1. 先打開Ganache (GUI） , 新建 workspace (NextDapp)
+   NextDapp :: Host name: 127.0.0.1-lo0 /Port: 8545 /Network ID:5555
+
+2. 修改 <project>/.truffle-config.js , 修改 development
+
+    development: {
+      host: "127.0.0.1",     // Localhost (default: none)
+      port: 8545,            // Standard Ethereum port (default: none)
+      network_id: "*",       // Any network (default: none)
+    },
+
+3. 打開步驟1的 Ganche設定
+   加入剛才修改好的 project : <project>/.truffle-config.js
+
+4. 開啟 Terminal : 
+   4-1. cd <project root>
+   4-2. truffle console --network development
+   4-3. 連上network後 truffle(development)
+   4-4. truffle(development)> compile
+   4-5. truffle(development)> migrate
+
+5. 按照README.md
+   Create the `.env.local` file in the `client` directory and define the following environment variables: 
+   在clinet目錄下建立 .env.local檔案。 然後填入以下資訊::(address 填入 Ganache-Contract中的 Greeter位置)
+    ```
+    NEXT_PUBLIC_GREETER_CONTRACT_ADDRESS=0x6508A85f7B684AcE43dA1b09585193C59b904528
+    NEXT_PUBLIC_INFURA_PROJECT_ID=YOUR_INFURA_PROJECT_ID
+    ```
+
+6. 啟動另一個Terminal：
+   6-1. cd <project root>/client
+   6-2. npm run dev
+
+7. 開啟 Metamask ：
+   設定網路， 匯入帳號，
+   
+  

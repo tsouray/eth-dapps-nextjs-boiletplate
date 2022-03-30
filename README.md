@@ -5,7 +5,7 @@
   <img alt="to the moon" src="https://img.shields.io/badge/to_the-moon-fab127.svg">
   <img alt="MIT license" src="https://img.shields.io/badge/license-MIT-blue.svg">
 </p>
-[![123]]
+
 The creation of Ethereum dApps Next.js Boiletplate is inspired by a truffle box [truffle-next](https://www.trufflesuite.com/boxes/truffle-next) with the
 following improvements:
  - TypeScript support

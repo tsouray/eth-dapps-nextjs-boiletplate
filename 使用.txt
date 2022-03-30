@@ -1,5 +1,5 @@
 該專案架構： Truffle + Ganache + Metamask + NextJS
-
+ 
 事先安裝項目： 1. Ganache ； 2. Metamask
 本專案Demo時的區塊鏈建議使用Ganache的開發鏈，
 搭配 Metamask 錢包 ，另外錢包需要事先安裝設定
@@ -113,5 +113,5 @@ eth-dapps-nextjs-boiletplate@0.1.0 /<project root path>/client
    
 
 
-   
+
   

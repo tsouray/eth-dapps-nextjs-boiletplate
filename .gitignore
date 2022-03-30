@@ -116,3 +116,4 @@ gasReporterOutput.json
 
 # Ignore 'next export' out directory
 **/out/
+.DS_Store

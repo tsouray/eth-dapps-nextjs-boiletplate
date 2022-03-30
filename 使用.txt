@@ -3,7 +3,7 @@
 事先安裝項目： 1. Ganache ； 2. Metamask
 本專案Demo時的區塊鏈建議使用Ganache的開發鏈，
 搭配 Metamask 錢包 ，另外錢包需要事先安裝設定
-    錢包安裝設定：
+    錢包安裝設定：（ 第四節 的 步驟2）
     1）安裝在使用的瀏覽器（Chrome）中
     2) 新增 自定義的網路鏈 ： 按照Ganache使用的設定來新增
     3) 連到自定義的網路鏈後， 接著在錢包 匯入帳戶 ： 複製Ganache提供的帳戶私鑰。
@@ -15,7 +15,7 @@
     (2) --> % npm i 
       (2-1)  若安裝失敗，輪入 --> % npm audit fix
     (3) 查看安裝 ：
->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         --> % npm list
 eth-dapps-nextjs-boiletplate@ /<project root path>
 ├── @codechecks/client@0.1.12
@@ -24,7 +24,7 @@ eth-dapps-nextjs-boiletplate@ /<project root path>
 ├── dotenv@16.0.0
 ├── eth-gas-reporter@0.2.24
 └── solidity-coverage@0.7.20
->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
    (4) 進入client 目錄，查看安裝，若有失敗項，修復之
        --> % cd client
    (5) client目錄下安裝依賴項 
@@ -33,7 +33,7 @@ eth-dapps-nextjs-boiletplate@ /<project root path>
            --> % npm audit fix
    (6) 檢查client目錄的安裝結果
         --> % npm list
->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 <project root path> client % npm list
 eth-dapps-nextjs-boiletplate@0.1.0 /<project root path>/client
 ├── @chakra-ui/icons@1.1.7
@@ -55,7 +55,7 @@ eth-dapps-nextjs-boiletplate@0.1.0 /<project root path>/client
 ├── sharp@0.30.2
 ├── typescript@4.6.2
 └── web3@1.7.0
->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 二.) Smart Contract Development (智能合約開發)
@@ -102,9 +102,15 @@ eth-dapps-nextjs-boiletplate@0.1.0 /<project root path>/client
        1-1. cd <project root path>/client
        1-2. npm run dev
 
-   (2) Chrome 開啟 Metamask ：
-      設定網路， 匯入帳號，
-
+   (2) Chrome 開啟 http://localhost:3000   ,然後打開 Metamask ：
+      Metamask 設定網路 連到 Ganache， 切換帳戶 或是 匯入帳戶 ()
+      錢包安裝設定：（ 第四節 - 步驟2）
+        2-1）打開瀏覽器（Chrome）的錢包
+        2-2) 連線到測試鏈
+            (2-2-1) 新增 自定義的網路鏈 ： 按照Ganache使用的設定來新增
+            或是
+            (2-2-2) 切換到已經設定好的測試鏈
+        2-3) 連到自定義的網路鏈後， 接著在錢包 匯入帳戶 ： 複製Ganache提供的帳戶私鑰。
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #      
    
   
